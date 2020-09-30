@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Record Price Measure",
+	"Elements":
+	[
+		{
+			"Name":"Price",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

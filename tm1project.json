@@ -1,0 +1,115 @@
+
+{
+    "Version": "1.0",
+    "Name": "PonyMusic",
+    "Files":
+    [
+        "/data_load/*",
+        "/users.csv"
+    ],
+    "Ignore": 
+    [
+        "Processes('Bedrock.*')",
+        "!Processes('}sys_refresh_users')",
+        "!Processes('}sys_sync_attributes')",
+        "!Processes('}sys_export_attributes_data')",
+        "!Processes('}sys_export_attributes_defs')",
+        "!Processes('}sys_import_attributes_data')",
+        "!Processes('}sys_import_attributes_defs')"
+    ],
+    "Deployment":
+    {
+        "Development":
+        {
+            "Tasks":
+            {
+                "DownloadAttributes":
+                {
+                    "Process": "Processes('}sys_sync_attributes')",
+                    "Parameters": [ { "Name": "op", "Value": "1" } ]
+                },
+                "UploadAttributes":
+                {
+                    "Process": "Processes('}sys_sync_attributes')",
+                    "Parameters": [ { "Name": "op", "Value": "0" } ]
+                },
+                "LoadUsers":
+                {
+                    "Process": "Processes('}sys_refresh_users')"
+                }
+            },
+            "PostPull":
+            [ 
+                "Tasks('LoadUsers')",
+                "Tasks('DownloadAttributes')"
+            ],
+            "PrePush":
+            [ 
+                "Tasks('UploadAttributes')"
+            ]
+        },
+        "Test":
+        {
+            "Tasks":
+            {
+                "LoadAttributes":
+                {
+                    "Process": "Processes('}sys_sync_attributes')",
+                    "Parameters": [ { "Name": "op", "Value": "1" } ]
+                },
+                "LoadUsers":
+                {
+                    "Process": "Processes('}sys_refresh_users')",
+                    "Precondition": "(NOT Exists('users.csv')) or HasChanged('users.csv')"
+                }
+            },
+            "PostPull":
+            [ 
+                "Tasks('LoadUsers')",
+                "Tasks('LoadAttributes')"
+            ]
+        },
+        "Production":
+        {
+            "Tasks":
+            {
+                "LoadAttributes":
+                {
+                    "Process": "Processes('}sys_sync_attributes')",
+                    "Parameters": [ { "Name": "op", "Value": "1" } ]
+                },
+                "LoadUsers":
+                {
+                    "Process": "Processes('}sys_refresh_users')",
+                    "Precondition": "(NOT Exists('users.csv')) or HasChanged('users.csv')"
+                },
+                "LoadPriceData":
+                {
+                    "Process": "Processes('}sys_load_data')",
+                    "Parameters": [ { "Name": "src_file", "Value": "prices.csv" }, { "Name": "target_cube", "Value": "Record Price" } ],
+                    "Precondition": "(NOT Exists('prices.csv')) or HasChanged('prices.csv')"
+                },
+                "LoadSalesData":
+                {
+                    "Process": "Processes('}sys_load_data')",
+                    "Parameters": [ { "Name": "src_file", "Value": "sales.csv" }, { "Name": "target_cube", "Value": "Record Sales" } ],
+                    "Precondition": "(NOT Exists('sales.csv')) or HasChanged('sales.csv')"
+                },
+                "LoadRatingData":
+                {
+                    "Process": "Processes('}sys_load_data')",
+                    "Parameters": [ { "Name": "src_file", "Value": "ratings.csv" }, { "Name": "target_cube", "Value": "Record Rating" } ],
+                    "Precondition": "(NOT Exists('ratings.csv')) or HasChanged('ratings.csv')"
+                }
+            },
+            "PostPull":
+            [ 
+                "Tasks('LoadUsers')",
+                "Tasks('LoadAttributes')",
+                "Tasks('LoadPriceData')",
+                "Tasks('LoadSalesData')",
+                "Tasks('LoadRatingData')"
+            ]
+        }
+    }
+}

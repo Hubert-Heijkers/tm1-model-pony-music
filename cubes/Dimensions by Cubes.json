@@ -1,0 +1,18 @@
+{
+	"@type":"Cube",
+	"Name":"Dimensions by Cubes",
+	"Rules@Code.link":"Dimensions by Cubes.rules",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Dimensions')"
+		},
+		{
+			"@id":"Dimensions('}Cubes')"
+		},
+		{
+			"@id":"Dimensions('List')"
+		}
+	],
+	"Views@Code.links":[]
+}

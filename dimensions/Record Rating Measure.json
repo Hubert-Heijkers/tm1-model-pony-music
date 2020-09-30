@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"Record Rating Measure",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Record Rating Measure')/Hierarchies('Record Rating Measure')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"Record Rating Measure.hierarchies/Record Rating Measure.json"
+	]
+}

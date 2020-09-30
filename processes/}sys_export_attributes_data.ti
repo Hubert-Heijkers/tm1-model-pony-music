@@ -1,0 +1,86 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+file_name = data_dir|cube_name|'.dat';
+
+view_name = '}dummy_view';
+VIEWCREATE(cube_name, view_name, 1);
+
+i = 1;
+dimension_name = TABDIM(cube_name, i);
+WHILE(dimension_name @<> '');
+  i = i + 1;
+  dimension_name = TABDIM(cube_name, i);
+END;
+
+dimension_count = i - 1;
+
+i = 1;
+WHILE(i <= dimension_count);
+  dimension_name = TABDIM(cube_name, i);
+  subset_name = '}dummy_subset';
+  IF(SUBSETEXISTS(dimension_name, subset_name) <> 1 );
+    SUBSETCREATE(dimension_name, subset_name, 1);
+    j = 1;
+    WHILE(j <= DIMSIZ(dimension_name));
+      element_name = DIMNM(dimension_name, j);
+      IF(ELLEV(dimension_name, element_name) = 0 % DTYPE(dimension_name, element_name) @<> 'N');
+        SUBSETELEMENTINSERT(dimension_name, subset_name, element_name, SUBSETGETSIZE(dimension_name, subset_name) + 1);
+      ENDIF;
+      j = j + 1;
+    END;
+  ENDIF;
+  VIEWSUBSETASSIGN(cube_name, view_name, dimension_name, subset_name);
+  i = i + 1;
+END;
+
+VIEWEXTRACTSKIPZEROESSET(cube_name, view_name, 1);
+VIEWEXTRACTSKIPCALCSSET(cube_name, view_name, 1);
+VIEWEXTRACTSKIPRULEVALUESSET(cube_name, view_name, 1);
+
+VIEWCONSTRUCT(cube_name, view_name);
+
+DataSourceType='VIEW';
+DatasourceNameForServer=cube_name;
+DatasourceCubeview=view_name;
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+SetOutputCharacterSet(file_name, 'TM1CS_UTF8');
+
+IF(dimension_count = 2);
+   TEXTOUTPUT(file_name, v1, v2, v3);
+ELSEIF(dimension_count = 3);
+   TEXTOUTPUT(file_name, v1, v2, v3, v4);
+ELSEIF(dimension_count = 4);
+   TEXTOUTPUT(file_name, v1, v2, v3, v4,  v5);
+ELSEIF(dimension_count = 5);
+   TEXTOUTPUT(file_name, v1, v2, v3, v4, v5, v6);
+ELSEIF(dimension_count = 6);
+   TEXTOUTPUT(file_name, v1, v2, v3, v4, v5, v6, v7);
+ELSEIF(dimension_count = 7);
+   TEXTOUTPUT(file_name, v1, v2, v3, v4, v5, v6, v7, v8);
+ELSEIF(dimension_count = 8);
+   TEXTOUTPUT(file_name, v1, v2, v3, v4, v5, v6, v7, v8, v9);
+ELSEIF(dimension_count = 9);
+   TEXTOUTPUT(file_name, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10);
+ELSEIF(dimension_count = 10);
+   TEXTOUTPUT(file_name, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11);
+ELSEIF(dimension_count = 11);
+   TEXTOUTPUT(file_name, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12);
+ELSEIF(dimension_count = 12);
+   TEXTOUTPUT(file_name, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13);
+ELSEIF(dimension_count = 13);
+   TEXTOUTPUT(file_name, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14);
+ELSEIF(dimension_count = 14);
+   TEXTOUTPUT(file_name, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15);
+ELSEIF(dimension_count = 15);
+   TEXTOUTPUT(file_name, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16);
+ENDIF;
+
+#endregion

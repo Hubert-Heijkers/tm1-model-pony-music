@@ -1,0 +1,24 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+file_name = data_dir|'attributes.csv';
+
+DatasourceType = 'CHARACTERDELIMITED';
+DatasourceNameForServer = file_name;
+SETINPUTCHARACTERSET('TM1CS_UTF8');
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+IF(V3@='AA');
+  ATTRINSERT(V1, '', V2, 'A');
+ELSEIF(V3@='AS');
+  ATTRINSERT(V1, '', V2, 'S');
+ELSEIF(V3@='AN');
+  ATTRINSERT(V1, '', V2, 'N');
+ENDIF;
+#endregion

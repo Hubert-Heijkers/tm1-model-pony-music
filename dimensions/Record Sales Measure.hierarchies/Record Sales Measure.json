@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Record Sales Measure",
+	"Elements":
+	[
+		{
+			"Name":"Qty",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Amount",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

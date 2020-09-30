@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"Record Sales",
+	"Rules@Code.link":"Record Sales.rules",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Store')"
+		},
+		{
+			"@id":"Dimensions('Record')"
+		},
+		{
+			"@id":"Dimensions('Record Sales Measure')"
+		}
+	],
+	"Views@Code.links":[]
+}

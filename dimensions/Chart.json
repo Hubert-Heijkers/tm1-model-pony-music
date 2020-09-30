@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"Chart",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Chart')/Hierarchies('Chart')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"Chart.hierarchies/Chart.json"
+	]
+}

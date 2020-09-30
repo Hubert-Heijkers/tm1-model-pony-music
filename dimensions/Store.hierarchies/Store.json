@@ -1,0 +1,231 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Store",
+	"Elements":
+	[
+		{
+			"Name":"Total Stores",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Sydney",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Camperdown",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Chippendale",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Darlinghurst",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Darlington",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Potts Point",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Redfern",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Surry Hills",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Melbourne",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Brunswick",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Brunswick East",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Collingwood",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"West Melbourne",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"St Kilda",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Travancore",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fitzroy",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Brisbane",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Fortitude Valley",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Petrie Terrace",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"West End",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"New Farm",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Milton",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Highgate Hill",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bowen Hills",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Stores",
+			"ComponentName":"Sydney",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Stores",
+			"ComponentName":"Melbourne",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Stores",
+			"ComponentName":"Brisbane",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sydney",
+			"ComponentName":"Camperdown",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sydney",
+			"ComponentName":"Chippendale",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sydney",
+			"ComponentName":"Darlinghurst",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sydney",
+			"ComponentName":"Darlington",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sydney",
+			"ComponentName":"Potts Point",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sydney",
+			"ComponentName":"Redfern",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sydney",
+			"ComponentName":"Surry Hills",
+			"Weight":1
+		},
+		{
+			"ParentName":"Melbourne",
+			"ComponentName":"Brunswick",
+			"Weight":1
+		},
+		{
+			"ParentName":"Melbourne",
+			"ComponentName":"Brunswick East",
+			"Weight":1
+		},
+		{
+			"ParentName":"Melbourne",
+			"ComponentName":"Collingwood",
+			"Weight":1
+		},
+		{
+			"ParentName":"Melbourne",
+			"ComponentName":"West Melbourne",
+			"Weight":1
+		},
+		{
+			"ParentName":"Melbourne",
+			"ComponentName":"St Kilda",
+			"Weight":1
+		},
+		{
+			"ParentName":"Melbourne",
+			"ComponentName":"Travancore",
+			"Weight":1
+		},
+		{
+			"ParentName":"Melbourne",
+			"ComponentName":"Fitzroy",
+			"Weight":1
+		},
+		{
+			"ParentName":"Brisbane",
+			"ComponentName":"Fortitude Valley",
+			"Weight":1
+		},
+		{
+			"ParentName":"Brisbane",
+			"ComponentName":"Petrie Terrace",
+			"Weight":1
+		},
+		{
+			"ParentName":"Brisbane",
+			"ComponentName":"West End",
+			"Weight":1
+		},
+		{
+			"ParentName":"Brisbane",
+			"ComponentName":"New Farm",
+			"Weight":1
+		},
+		{
+			"ParentName":"Brisbane",
+			"ComponentName":"Milton",
+			"Weight":1
+		},
+		{
+			"ParentName":"Brisbane",
+			"ComponentName":"Highgate Hill",
+			"Weight":1
+		},
+		{
+			"ParentName":"Brisbane",
+			"ComponentName":"Bowen Hills",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,17 @@
+{
+	"@type":"Cube",
+	"Name":"Record Price",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Record')"
+		},
+		{
+			"@id":"Dimensions('Record Price Measure')"
+		}
+	],
+	"Views@Code.links":[]
+}

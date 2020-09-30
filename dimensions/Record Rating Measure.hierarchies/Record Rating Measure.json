@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Record Rating Measure",
+	"Elements":
+	[
+		{
+			"Name":"Rating",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

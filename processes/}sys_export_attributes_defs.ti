@@ -1,0 +1,29 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+file_name = data_dir|'attributes.csv';
+
+dimension_ctrl_dimension = '}Dimensions';
+element_count = DIMSIZ(dimension_ctrl_dimension);
+
+element_index = 1;
+WHILE(element_index <= element_count);
+  dimension_name = DIMNM(dimension_ctrl_dimension, element_index);
+  #Skip control dimension
+  IF(SCAN('}', dimension_name) <> 1);
+    attributes_dimension_name = '}ElementAttributes_'|dimension_name;
+    IF(DIMENSIONEXISTS(attributes_dimension_name) = 1);
+      attribute_count = DIMSIZ(attributes_dimension_name);
+      attribute_index = 1;
+      WHILE(attribute_index <= attribute_count);
+        attribute_name = DIMNM(attributes_dimension_name, attribute_index);
+        ASCIIOUTPUT(file_name, dimension_name, attribute_name, DTYPE(attributes_dimension_name, attribute_name));
+        attribute_index = attribute_index + 1;
+      END;
+    ENDIF;
+  ENDIF;
+  element_index = element_index + 1;
+END;
+#endregion

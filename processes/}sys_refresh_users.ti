@@ -1,0 +1,96 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+### Delete All Clients ###
+clients_ctrl_dimension = '}Clients';
+
+element_count = DIMSIZ(clients_ctrl_dimension);
+element_index = 1;
+WHILE(0 < element_count);
+  client_name = DIMNM(clients_ctrl_dimension, element_index);
+  IF(client_name @<> 'Admin');
+    DeleteClient(client_name);
+  ELSE;
+    element_index = element_index + 1;
+  ENDIF;
+  element_count = element_count - 1;
+END;
+
+### Delete All Groups ###
+groups_ctrl_dimension = '}Groups';
+
+element_count = DIMSIZ(groups_ctrl_dimension);
+element_index = 1;
+WHILE(0 < element_count);
+  group_name = DIMNM(groups_ctrl_dimension, element_index);
+  IF(group_name @<> 'Admin' & group_name @<> 'SecurityAdmin' & group_name @<> 'DataAdmin' & group_name @<> 'OperationsAdmin');
+    DeleteGroup(group_name);
+  ELSE;
+    element_index = element_index + 1;
+  ENDIF;
+  element_count = element_count - 1;
+END;
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+IF(Name@<>'Admin');
+  AddClient(Name);
+ENDIF;
+
+IF(Group1@<>'' & Group1 @<> 'Admin' & Group1 @<> 'SecurityAdmin' & Group1 @<> 'DataAdmin' & Group1 @<> 'OperationsAdmin');
+  AddGroup(Group1);
+ENDIF;
+
+IF(Group2@<>'' & Group2 @<> 'Admin' & Group2 @<> 'SecurityAdmin' & Group2 @<> 'DataAdmin' & Group2 @<> 'OperationsAdmin');
+  AddGroup(Group1);
+ENDIF;
+
+IF(Group3@<>'' & Group3 @<> 'Admin' & Group3 @<> 'SecurityAdmin' & Group3 @<> 'DataAdmin' & Group3 @<> 'OperationsAdmin');
+  AddGroup(Group1);
+ENDIF;
+
+IF(Group4@<>'' & Group4 @<> 'Admin' & Group4 @<> 'SecurityAdmin' & Group4 @<> 'DataAdmin' & Group4 @<> 'OperationsAdmin');
+  AddGroup(Group1);
+ENDIF;
+
+IF(Group5@<>'' & Group5 @<> 'Admin' & Group5 @<> 'SecurityAdmin' & Group5 @<> 'DataAdmin' & Group5 @<> 'OperationsAdmin');
+  AddGroup(Group1);
+ENDIF;
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+IF(Group1@<>'');
+  AssignClientToGroup(Name, Group1);
+ENDIF;
+
+IF(Group2@<>'');
+  AssignClientToGroup(Name, Group2);
+ENDIF;
+
+IF(Group3@<>'');
+  AssignClientToGroup(Name, Group3);
+ENDIF;
+
+IF(Group4@<>'');
+  AssignClientToGroup(Name, Group4);
+ENDIF;
+
+IF(Group5@<>'');
+  AssignClientToGroup(Name, Group5);
+ENDIF;
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

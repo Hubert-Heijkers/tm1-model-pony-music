@@ -1,0 +1,52 @@
+{
+	"@type":"NativeView",
+	"Name":"Default",
+	"Columns":[],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Period')/Hierarchies('Period')"
+				},
+				"Expression":"TM1SubsetAll([Period])"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Chart')/Hierarchies('Chart')"
+				},
+				"Expression":"TM1SubsetAll([Chart])"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Record')/Hierarchies('Record')"
+				},
+				"Expression":"TM1SubsetAll([Record])"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Record Rating Measure')/Hierarchies('Record Rating Measure')"
+				},
+				"Expression":"TM1SubsetAll([Record Rating Measure])"
+			}
+		}
+	],
+	"Titles":[],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.00"
+}

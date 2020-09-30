@@ -1,0 +1,8 @@
+SKIPCHECK;
+
+['Amount'] =
+   N: ['Qty'] * DB('Record Price',!Period,!Record,'Price');
+
+FEEDERS;
+
+['Qty'] => ['Amount'];

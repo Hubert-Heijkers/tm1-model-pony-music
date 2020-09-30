@@ -1,0 +1,204 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Manager",
+	"Elements":
+	[
+		{
+			"Name":"Total Managers",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Buster Gage  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Carlotta Tilly  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Chere Warriner  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Christena Squires  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Codi Laney  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dorian Loan  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Eloise Bondi  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Emilie Hanford  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Evette Drakes  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forrest Deem  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Gayle Hon  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Guy Branscome  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Liberty Petit  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Lurlene Grimmer  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Malcom Haran  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Maricela Wolfram  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mina Boles  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Palmira Yeary  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Phuong Tellez  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Scarlett Edie  ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Shemeka Sams  ",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Buster Gage  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Carlotta Tilly  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Chere Warriner  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Christena Squires  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Codi Laney  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Dorian Loan  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Eloise Bondi  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Emilie Hanford  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Evette Drakes  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Forrest Deem  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Gayle Hon  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Guy Branscome  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Liberty Petit  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Lurlene Grimmer  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Malcom Haran  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Maricela Wolfram  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Mina Boles  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Palmira Yeary  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Phuong Tellez  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Scarlett Edie  ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Managers",
+			"ComponentName":"Shemeka Sams  ",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

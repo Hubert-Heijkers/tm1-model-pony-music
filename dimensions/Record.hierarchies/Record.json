@@ -1,0 +1,492 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Record",
+	"Elements":
+	[
+		{
+			"Name":"Total Records",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Animal Collective – Merriweather Post Pavillion",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Beastie Boys – Paul’s Boutique",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"The Beatles – Revolver",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Beck – Sea Change",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Beirut – The Flying Club Cup",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"The Black Keys – Thickfreakness",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Blur – Think Tank",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Boards of Canada – Music Has the Right to the Children",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bob Dylan – Blonde on Blonde",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bon Iver – Bon Iver",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Daft Punk – Random Access Memories",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Darkside – Psychic",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"David Bowie – Ziggy Stardust",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dire Straits – Love Over Gold",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DJ Shadow – …Entroducing",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"The Felice Brothers – The Felice Brothers",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"The Flaming Lips – The Soft Bulletin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fleet Foxes – Fleet Foxes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fleetwood Mac – Rumours",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Funkadelic – Maggot Brain",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Joanna Newsom – Have One On Me",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"John Coltrane – A Love Supreme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Joni Mitchell – Blue",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Joy Division – Unknown Pleasures",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kid Koala – 12 bit Blues",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Led Zeppelin – II",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Madvillain – Madvillainy",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Marvin Gaye – What’s Going On",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Michael Jackson – Thriller",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Miles Davis – Kind of Blue",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"My Bloody Valentine – Loveless",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Neil Young – Harvest",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Neutral Milk Hotel – In an Aeroplane Over the Sea",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Panda Bear – Tomboy",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Paul Simon – Graceland",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pavement – Slanted and Enchanted",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pink Floyd – Dark Side Of the Moon",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Portishead – Third",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R.L. Burnside – Too Bad Jim",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Radiohead – Kid A",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Refused – The Shape of Punk to Come",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"The Rolling Stones – Exile On Main Street",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sigur Rós – Agaetis Byrjun",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Slint – Spiderland",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Steely Dan – Aja",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"The Strokes – Is This It?",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sufjan Stevens – Illinois",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Van Morrison – Moondance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"The War On Drugs – Lost In The Dream",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"The White Stripes – Elephant",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Wilco – Yankee Hotel Foxtrot",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Wu-Tang Clan – Enter The Wu-Tang (36 Chambers)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TheBeatles–PennyLane",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Animal Collective – Merriweather Post Pavillion",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Beastie Boys – Paul’s Boutique",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"The Beatles – Revolver",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Beck – Sea Change",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Beirut – The Flying Club Cup",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"The Black Keys – Thickfreakness",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Blur – Think Tank",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Boards of Canada – Music Has the Right to the Children",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Bob Dylan – Blonde on Blonde",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Bon Iver – Bon Iver",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Daft Punk – Random Access Memories",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Darkside – Psychic",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"David Bowie – Ziggy Stardust",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Dire Straits – Love Over Gold",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"DJ Shadow – …Entroducing",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"The Felice Brothers – The Felice Brothers",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"The Flaming Lips – The Soft Bulletin",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Fleet Foxes – Fleet Foxes",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Fleetwood Mac – Rumours",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Funkadelic – Maggot Brain",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Joanna Newsom – Have One On Me",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"John Coltrane – A Love Supreme",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Joni Mitchell – Blue",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Joy Division – Unknown Pleasures",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Kid Koala – 12 bit Blues",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Led Zeppelin – II",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Madvillain – Madvillainy",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Marvin Gaye – What’s Going On",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Michael Jackson – Thriller",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Miles Davis – Kind of Blue",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"My Bloody Valentine – Loveless",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Neil Young – Harvest",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Neutral Milk Hotel – In an Aeroplane Over the Sea",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Panda Bear – Tomboy",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Paul Simon – Graceland",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Pavement – Slanted and Enchanted",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Pink Floyd – Dark Side Of the Moon",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Portishead – Third",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"R.L. Burnside – Too Bad Jim",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Radiohead – Kid A",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Refused – The Shape of Punk to Come",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"The Rolling Stones – Exile On Main Street",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Sigur Rós – Agaetis Byrjun",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Slint – Spiderland",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Steely Dan – Aja",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"The Strokes – Is This It?",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Sufjan Stevens – Illinois",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Van Morrison – Moondance",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"The War On Drugs – Lost In The Dream",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"The White Stripes – Elephant",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Wilco – Yankee Hotel Foxtrot",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"Wu-Tang Clan – Enter The Wu-Tang (36 Chambers)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Records",
+			"ComponentName":"TheBeatles–PennyLane",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

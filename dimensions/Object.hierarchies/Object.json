@@ -1,0 +1,531 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Object",
+	"Elements":
+	[
+		{
+			"Name":"All Elements",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"big red square",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"medium red square",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"small red square",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"big blue square",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"medium blue square",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"small blue square",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"big green square",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"medium green square",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"small green square",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"big red circle",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"medium red circle",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"small red circle",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"big blue circle",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"medium blue circle",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"small blue circle",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"big green circle",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"medium green circle",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"small green circle",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"By Size",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"big",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"medium",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"small",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"By Colour",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"red",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"blue",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"green",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"By Shape",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"square",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"circle",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"big red square",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"medium red square",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"small red square",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"big blue square",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"medium blue square",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"small blue square",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"big green square",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"medium green square",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"small green square",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"big red circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"medium red circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"small red circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"big blue circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"medium blue circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"small blue circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"big green circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"medium green circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Elements",
+			"ComponentName":"small green circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"By Size",
+			"ComponentName":"big",
+			"Weight":1
+		},
+		{
+			"ParentName":"By Size",
+			"ComponentName":"medium",
+			"Weight":1
+		},
+		{
+			"ParentName":"By Size",
+			"ComponentName":"small",
+			"Weight":1
+		},
+		{
+			"ParentName":"big",
+			"ComponentName":"big red square",
+			"Weight":1
+		},
+		{
+			"ParentName":"big",
+			"ComponentName":"big blue square",
+			"Weight":1
+		},
+		{
+			"ParentName":"big",
+			"ComponentName":"big green square",
+			"Weight":1
+		},
+		{
+			"ParentName":"big",
+			"ComponentName":"big red circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"big",
+			"ComponentName":"big blue circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"big",
+			"ComponentName":"big green circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"medium",
+			"ComponentName":"medium red square",
+			"Weight":1
+		},
+		{
+			"ParentName":"medium",
+			"ComponentName":"medium blue square",
+			"Weight":1
+		},
+		{
+			"ParentName":"medium",
+			"ComponentName":"medium green square",
+			"Weight":1
+		},
+		{
+			"ParentName":"medium",
+			"ComponentName":"medium red circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"medium",
+			"ComponentName":"medium blue circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"medium",
+			"ComponentName":"medium green circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"small",
+			"ComponentName":"small red square",
+			"Weight":1
+		},
+		{
+			"ParentName":"small",
+			"ComponentName":"small blue square",
+			"Weight":1
+		},
+		{
+			"ParentName":"small",
+			"ComponentName":"small green square",
+			"Weight":1
+		},
+		{
+			"ParentName":"small",
+			"ComponentName":"small red circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"small",
+			"ComponentName":"small blue circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"small",
+			"ComponentName":"small green circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"By Colour",
+			"ComponentName":"red",
+			"Weight":1
+		},
+		{
+			"ParentName":"By Colour",
+			"ComponentName":"blue",
+			"Weight":1
+		},
+		{
+			"ParentName":"By Colour",
+			"ComponentName":"green",
+			"Weight":1
+		},
+		{
+			"ParentName":"red",
+			"ComponentName":"big red square",
+			"Weight":1
+		},
+		{
+			"ParentName":"red",
+			"ComponentName":"medium red square",
+			"Weight":1
+		},
+		{
+			"ParentName":"red",
+			"ComponentName":"small red square",
+			"Weight":1
+		},
+		{
+			"ParentName":"red",
+			"ComponentName":"big red circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"red",
+			"ComponentName":"medium red circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"red",
+			"ComponentName":"small red circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"blue",
+			"ComponentName":"big blue square",
+			"Weight":1
+		},
+		{
+			"ParentName":"blue",
+			"ComponentName":"medium blue square",
+			"Weight":1
+		},
+		{
+			"ParentName":"blue",
+			"ComponentName":"small blue square",
+			"Weight":1
+		},
+		{
+			"ParentName":"blue",
+			"ComponentName":"big blue circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"blue",
+			"ComponentName":"medium blue circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"blue",
+			"ComponentName":"small blue circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"green",
+			"ComponentName":"big green square",
+			"Weight":1
+		},
+		{
+			"ParentName":"green",
+			"ComponentName":"medium green square",
+			"Weight":1
+		},
+		{
+			"ParentName":"green",
+			"ComponentName":"small green square",
+			"Weight":1
+		},
+		{
+			"ParentName":"green",
+			"ComponentName":"big green circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"green",
+			"ComponentName":"medium green circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"green",
+			"ComponentName":"small green circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"By Shape",
+			"ComponentName":"square",
+			"Weight":1
+		},
+		{
+			"ParentName":"By Shape",
+			"ComponentName":"circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"square",
+			"ComponentName":"big red square",
+			"Weight":1
+		},
+		{
+			"ParentName":"square",
+			"ComponentName":"medium red square",
+			"Weight":1
+		},
+		{
+			"ParentName":"square",
+			"ComponentName":"small red square",
+			"Weight":1
+		},
+		{
+			"ParentName":"square",
+			"ComponentName":"big blue square",
+			"Weight":1
+		},
+		{
+			"ParentName":"square",
+			"ComponentName":"medium blue square",
+			"Weight":1
+		},
+		{
+			"ParentName":"square",
+			"ComponentName":"small blue square",
+			"Weight":1
+		},
+		{
+			"ParentName":"square",
+			"ComponentName":"big green square",
+			"Weight":1
+		},
+		{
+			"ParentName":"square",
+			"ComponentName":"medium green square",
+			"Weight":1
+		},
+		{
+			"ParentName":"square",
+			"ComponentName":"small green square",
+			"Weight":1
+		},
+		{
+			"ParentName":"circle",
+			"ComponentName":"big red circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"circle",
+			"ComponentName":"medium red circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"circle",
+			"ComponentName":"small red circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"circle",
+			"ComponentName":"big blue circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"circle",
+			"ComponentName":"medium blue circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"circle",
+			"ComponentName":"small blue circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"circle",
+			"ComponentName":"big green circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"circle",
+			"ComponentName":"medium green circle",
+			"Weight":1
+		},
+		{
+			"ParentName":"circle",
+			"ComponentName":"small green circle",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

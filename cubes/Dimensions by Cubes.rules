@@ -1,0 +1,5 @@
+[] =
+   N: IF( TABDIM( !}Cubes , NUMBR( !List ) ) @= !}Dimensions
+      , NUMBR( !List )
+      , 0
+   );

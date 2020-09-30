@@ -1,0 +1,19 @@
+{
+	"@type":"Process",
+	"Name":"}sys_sync_attributes",
+	"Code@Code.link":"}sys_sync_attributes.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"op",
+			"Prompt":"0-export 1-import",
+			"Value":1,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":[]
+}

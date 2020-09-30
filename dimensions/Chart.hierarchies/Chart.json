@@ -1,0 +1,42 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Chart",
+	"Elements":
+	[
+		{
+			"Name":"Total Charts",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"All Time Music",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dynamics",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sounds of Holocene",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Charts",
+			"ComponentName":"All Time Music",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Charts",
+			"ComponentName":"Dynamics",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Charts",
+			"ComponentName":"Sounds of Holocene",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

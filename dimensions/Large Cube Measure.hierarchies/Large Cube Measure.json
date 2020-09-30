@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Large Cube Measure",
+	"Elements":
+	[
+		{
+			"Name":"Value",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

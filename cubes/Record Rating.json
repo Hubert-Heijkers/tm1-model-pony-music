@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"Record Rating",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Chart')"
+		},
+		{
+			"@id":"Dimensions('Record')"
+		},
+		{
+			"@id":"Dimensions('Record Rating Measure')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"Record Rating.views/Default.json"
+	]
+}

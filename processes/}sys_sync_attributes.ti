@@ -1,0 +1,50 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+data_dir = './data_load/attributes/';
+
+### Element Attributes ###
+IF(op = 1);
+  EXECUTEPROCESS('}sys_import_attributes_defs', 'data_dir', data_dir);
+ELSE;
+  EXECUTEPROCESS('}sys_export_attributes_defs', 'data_dir', data_dir);
+ENDIF;
+
+### Element Attributes Data ###
+dimensions_ctrl_dimension = '}Dimensions';
+element_count = DIMSIZ(dimensions_ctrl_dimension);
+
+element_index = 1;
+WHILE(element_index <= element_count);
+  dimension_name = DIMNM(dimensions_ctrl_dimension, element_index);
+  IF(SCAN('}', dimension_name) <> 1);
+    attribute_dimension_name = '}ElementAttributes_'|dimension_name;
+    IF(CUBEEXISTS(attribute_dimension_name) = 1);
+      IF(op = 1);
+        EXECUTEPROCESS('}sys_import_attributes_data', 'cube_name', attribute_dimension_name, 'data_dir', data_dir);
+      ELSE;
+        EXECUTEPROCESS('}sys_export_attributes_data', 'cube_name', attribute_dimension_name, 'data_dir', data_dir);
+      ENDIF;
+    ENDIF;
+  ENDIF;
+  element_index = element_index + 1;
+END;
+
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

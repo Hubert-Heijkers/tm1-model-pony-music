@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"Record Price Measure",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Record Price Measure')/Hierarchies('Record Price Measure')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"Record Price Measure.hierarchies/Record Price Measure.json"
+	]
+}

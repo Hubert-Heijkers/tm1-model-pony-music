@@ -1,0 +1,429 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# =====================================================================================
+# Kopieren der Werte von "psMeasureSrc" auf "psMeasureDest"
+#
+# Prozess-Info-Ausgaben über TM1Server.log:
+#    Konfigurations-Datei: tm1s-log.properties
+#    Parameter: log4j.logger.TM1.TILogOutput=<INFO|DEBUG>
+#    Parameterwerte: INFO oder DEBUG - dabei gilt prinzipiell
+#       INFO - für Start (mit aufgerufenen Parametern) und Ende im Epilog(ggf. Prolog)  (relevant für Betrieb, sofern wichtig, auch für Zwischenschritte/-ergebnisse (falls nicht DEBUG))
+#       ERROR - kontrollierte Prozessabbrüche ProcessBreak/Quit bspw. auf Grund fehlender Parameterwerte/fehlender Quelldateien/fehlende Datenbankverbindung (relevant für Betrieb)
+#       DEBUG - für Zwischenschritte/-ausgaben, wo es sinnvoll ist (bspw. zusammengesetzte SQL-Anweisungen etc.) (tendenziell relevant während der Entwicklung)
+#
+# Änderungshistorie:
+#    Datum              Autor               Beschreibung
+#    _________________________________________________________________________________
+#
+#    20.04.2020      ThomasWilhelmi   Erstellung.
+# =====================================================================================
+
+# =====================================================================================
+# Allgemeine Prozessvariablen definieren.
+# =====================================================================================
+vsProcessName = GetProcessName ( ) ;
+vnTimestampStart = NOW ;
+vsZufallszahl = NumberToString ( Round ( Rand * 100 ) ) ;
+
+vnRecordCountM = 0 ;
+vnRecordCountD = 0 ;
+
+vnLoadCountM = 0 ;
+vnLoadCountD = 0 ;
+
+vnErrCountM = 0 ;
+vnErrCountD = 0 ;
+
+vnEmptyCountD = 0 ;
+
+#TRUE/FALSE-Flag
+TRUE = 1 ;
+FALSE = 0 ;
+
+# Tabulator (ehemals vsDelimLog)
+TAB = CHAR ( 9 ) ;
+# Zeilenumbruch
+CRLF = CHAR ( 13 ) | CHAR ( 10 ) ;
+# Zirkumflex (^) (ehemals vsDelimExport)
+DACH = CHAR ( 94 ) ;
+
+# ExecuteCommand - Wait
+WAIT = 1 ;
+NOWAIT = 0 ;
+
+# =====================================================================================
+# spezifische Prozesskonstanten definieren.
+# =====================================================================================
+# Ziel-Cube für Datenimport
+csCubeName = '}APQ UX ViewSource' ;
+
+# Views und Subsets als "Temp" anlegen (cnIsTemp = 1/TRUE, temporär; cnIsTemp = 0/FALSE, statischer View / Subset)
+cnIsTemp = FALSE ;
+
+# =====================================================================================
+# TI-Aufruf im TM1-Server-Log mit Parameterwerten protokollieren.
+# =====================================================================================
+#----------
+LogOutput ( 'INFO', 'ProzessAufruf_Parameterwerte'
+   | CRLF | TAB | 'vsProcessName: ' | TAB | vsProcessName
+   | CRLF | TAB | 'TM1User: ' | TAB | TM1User
+   | CRLF | TAB | '0133 Prolog:' |TAB | 'Parameter: '
+   | CRLF | TAB | 'psLog: ' | TAB | psLog
+   | CRLF | TAB | 'psRecordLimit: ' | TAB | psRecordLimit
+   | CRLF | TAB | 'psDebug: ' | TAB | psDebug
+   | CRLF | TAB | 'psMeasureSrc: ' | TAB | psMeasureSrc
+   | CRLF | TAB | 'psMeasureDest: ' | TAB | psMeasureDest
+) ;
+
+vsAllParameters = psLog | DACH | psRecordLimit | DACH | psDebug | DACH | psMeasureSrc | DACH | psMeasureDest ;
+LogOutput ( 'INFO', 'ProzessAufruf_Parameterwerte_Liste' | TAB | vsProcessName | TAB | '0142 Prolog:' |TAB | 'Parameters:' | TAB |  vsAllParameters ) ;
+
+# =====================================================================================
+# Allgemeine Prozessparemeter auslesen.
+# =====================================================================================
+
+# =====================================================================================
+# Log- und andere Ausgabedateien.
+# =====================================================================================
+#DatasourceASCIIDelimiter = 'Char' ;
+DatasourceASCIIQuoteCharacter = '' ;
+DatasourceASCIIDecimalSeparator = ',' ;
+#DatasourceASCIIThousandSeparator = 'Char' ;
+#DatasourceASCIIHeaderRecords = N ;
+
+# =====================================================================================
+# Überprüfung der TI-Parameter.
+# =====================================================================================
+vnErrProlog = 0 ;
+
+# psLog
+#vsDimName = '-' ;
+vsElemName = psLog ;
+vnElemName = StringToNumber ( psLog ) ;
+vsParamElemName = 'psLog' ;
+
+If ( vsElemName @= '' ) ;
+   vsLogText = 'fehlender Parameterwert für ''' | vsParamElemName | '''.' ;
+   LogOutput ( 'ERROR', 'ProcessBreak_Beschreibung' | TAB | vsProcessName | TAB | '0223 Prolog:' | TAB | vsLogText ) ;
+   vnErrProlog = 1 ;
+
+   # ==============================
+   ProcessBreak ;
+   # ==============================
+EndIf ;
+
+If ( vnElemName <> 0 & vnElemName <> 1 & vnElemName <> 2 ) ;
+   vsLogText = 'ungültiger Parameterwert (''' | vsParamElemName | '''):' | TAB | vsElemName | TAB | 'zulässige Werte: ''0'' (kein Log) / ''1'' (mit Elm-Check) / ''2'' (mit Elm-Check und Zusammfassung-Log).' ;   
+   LogOutput ( 'ERROR', 'ProcessBreak_Beschreibung' | TAB | vsProcessName | TAB | '0233 Prolog:' | TAB | vsLogText ) ; 
+   vnErrProlog = 1 ;
+	
+   # ==============================
+   ProcessBreak ;
+   # ==============================
+EndIf ;
+
+# psRecordLimit
+#vsDimName = '-' ;
+vsElemName = psRecordLimit ;
+vnElemName = StringToNumber ( psRecordLimit ) ;
+vsParamElemName = 'psRecordLimit' ;
+
+If ( vsElemName @= '' ) ;
+   vsLogText = 'fehlender Parameterwert für ''' | vsParamElemName | '''.' ;
+   LogOutput ( 'ERROR', 'ProcessBreak_Beschreibung' | TAB | vsProcessName | TAB | '0250 Prolog:' | TAB | vsLogText ) ;
+   vnErrProlog = 1 ;
+	
+   # ==============================
+   ProcessBreak ;
+   # ==============================
+EndIf ;
+
+If ( vnElemName < 0 ) ;
+   vsLogText = 'ungültiger Parameterwert (''' | vsParamElemName | '''):' | TAB | vsElemName | TAB | 'zulässige Werte: ''0'' (ohne Datensatzbegrenzung)  oder größer 0 (entspricht Anzahl zuverarbeitender Datensätze).' ;
+   LogOutput ( 'ERROR', 'ProcessBreak_Beschreibung' | TAB | vsProcessName | TAB | '0262 Prolog:' | TAB | vsLogText ) ;
+   vnErrProlog = 1 ;
+	
+   # ==============================
+   ProcessBreak ;
+   # ==============================
+EndIf ;
+
+# psDebug
+#vsDimName = '-' ;
+vsElemName = psDebug ;
+vnElemName = StringToNumber ( psDebug ) ;
+vsParamElemName = 'psDebug' ;
+
+If ( vsElemName @= '' ) ;
+   vsLogText = 'fehlender Parameterwert für ''' | vsParamElemName | '''.' ;
+   LogOutput ( 'ERROR', 'ProcessBreak_Beschreibung' | TAB | vsProcessName | TAB | '0278 Prolog:' | TAB | vsLogText ) ;
+   vnErrProlog = 1 ;
+	
+   # ==============================
+   ProcessBreak ;
+   # ==============================
+EndIf ;
+
+If ( vnElemName <> 0 & vnElemName <> 1 ) ;
+   vsLogText = 'ungültiger Parameterwert (''' | vsParamElemName | '''):' | TAB | vsElemName | TAB | 'zulässige Werte: ''0'' (ohne DEBUG-Prozessinfo in tm1server.log und ohne Ausgabe importierte Datensätze) oder ''1'' (mit DEBUG-Prozessinfo in tm1server.log und mit Ausgabe importierte Datensätze).' ;
+   LogOutput ( 'ERROR', 'ProcessBreak_Beschreibung' | TAB | vsProcessName | TAB | '0290 Prolog:' | TAB | vsLogText ) ;
+   vnErrProlog = 1 ;
+	
+   # ==============================
+   ProcessBreak ;
+   # ==============================  
+EndIf ;
+
+# psBestand_PLAUSY
+vsDimName = '}APQ UX ViewSource Measure' ;
+vsElemName = psMeasureSrc ;
+#vnElemName = - ;
+vsParamElemName = 'psMeasureSrc' ;
+
+If ( vsElemName @= '' ) ;
+   vsLogText = 'fehlender Parameterwert für ''' | vsParamElemName | '''.' ;
+   LogOutput ( 'ERROR', 'ProcessBreak_Beschreibung' | TAB | vsProcessName | TAB | '0307 Prolog:' | TAB | vsLogText ) ;
+   vnErrProlog = 1 ;
+	
+   # ==============================
+   ProcessBreak ;
+   # ==============================
+EndIf ;
+
+If ( DimIx ( vsDimName, vsElemName ) = 0  % DType ( vsDimName, vsElemName ) @<> 'S' ) ;
+   vsLogText = 'ungültiger Parameterwert (''' | vsParamElemName | '''):' | TAB | 'Element existiert nicht in der Dimension ''' | vsDimName | ''' oder ist nicht vom Datentyp "S":' | TAB | vsElemName ;
+   LogOutput ( 'ERROR', 'ProcessBreak_Beschreibung' | TAB | vsProcessName | TAB | '0318 Prolog:' | TAB | vsLogText ) ;
+   vnErrProlog = 1 ;
+
+   # ==============================
+   ProcessBreak ;
+   # ==============================
+EndIf ;
+
+# psPRO_Basis_Verr_BstVkz
+vsDimName = '}APQ UX ViewSource Measure' ;
+vsElemName = psMeasureDest ;
+#vnElemName = - ;
+vsParamElemName = 'psMeasureDest' ;
+
+If ( vsElemName @= '' ) ;
+   vsLogText = 'fehlender Parameterwert für ''' | vsParamElemName | '''.' ;
+   LogOutput ( 'ERROR', 'ProcessBreak_Beschreibung' | TAB | vsProcessName | TAB | '0291 Prolog:' | TAB | vsLogText ) ;
+   vnErrProlog = 1 ;
+	
+   # ==============================
+   ProcessBreak ;
+   # ==============================
+EndIf ;
+
+If ( DimIx ( vsDimName, vsElemName ) = 0  % DType ( vsDimName, vsElemName ) @<> 'S' ) ;
+   vsLogText = 'ungültiger Parameterwert (''' | vsParamElemName | '''):' | TAB | 'Element existiert nicht in der Dimension ''' | vsDimName | ''' oder ist nicht vom Datentyp "S":' | TAB | vsElemName ;
+   LogOutput ( 'ERROR', 'ProcessBreak_Beschreibung' | TAB | vsProcessName | TAB | '0348 Prolog:' | TAB | vsLogText ) ;
+   vnErrProlog = 1 ;
+
+   # ==============================
+   ProcessBreak ;
+   # ==============================
+EndIf ;
+
+
+# =====================================================================================
+# spezifische Prozessvariablen definieren.
+# =====================================================================================
+vnLog = StringToNumber ( psLog ) ;
+vnRecordLimit = StringToNumber ( psRecordLimit ) ;
+vnDebug = StringToNumber ( psDebug) ; 
+
+# =====================================================================================
+# Zieldatenraum leeren über temp. View. (ZeroOut).
+# =====================================================================================
+# View: Erstellung der (temporären) View für ZeroOut vorbereiten.
+# -----------------------------------------------------------------------------
+vsViewPrefix = 'V_' | TIMST ( vnTimestampStart, '\Y\m\d\h\i\s' ) | '_' | vsZufallszahl | '_' | psMeasureSrc | '_' | psMeasureDest | '_' ;
+vsViewSuffix = '_ZeroOut_Temp' ;
+vsSubsPrefix = 'S_' | TIMST ( vnTimestampStart, '\Y\m\d\h\i\s' ) | '_' | vsZufallszahl | '_' | psMeasureSrc | '_' | psMeasureDest | '_' ;
+vsSubsSuffix = '_ZeroOut_Temp' ;
+
+vsViewName = vsViewPrefix | vsProcessName | vsViewSuffix ;
+vsSubsetName = vsSubsPrefix | vsProcessName | vsSubsSuffix ;
+
+
+# (temporäre) View anlegen.
+# -----------------------------------------------------------------------------
+If ( ViewExists ( csCubeName, vsViewName ) = 1 ) ;
+   ViewDestroy ( csCubeName, vsViewName ) ;
+EndIf ;
+ViewCreate ( csCubeName, vsViewName, cnIsTemp ) ;
+
+ViewExtractSkipCalcsSet ( csCubeName, vsViewName, 1 ) ;
+ViewExtractSkipZeroesSet ( csCubeName, vsViewName, 1 ) ;
+
+
+# Subset erstellen und der View zuordnen.
+# -----------------------------------------------------------------------------
+# Dimension: bestand ######################
+vsDimName = '}APQ UX ViewSource Measure' ;
+vsSubsElemName = psMeasureDest ;
+
+If ( SubsetExists ( vsDimName, vsSubsetName ) = 1 ) ;
+   SubsetDeleteAllElements ( vsDimName, vsSubsetName ) ;
+Else ;
+   SubsetCreate ( vsDimName, vsSubsetName, cnIsTemp ) ;
+EndIf ;
+
+SubsetElementInsert ( vsDimName, vsSubsetName, vsSubsElemName, 1 ) ;
+
+ViewSubsetAssign ( csCubeName, vsViewName, vsDimName, vsSubsetName ) ;
+
+
+# Datenraum löschen
+# -----------------------------------------------------------------------------
+LogOutput ( 'DEBUG', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0565 Prolog:' | TAB | 'Cube-Bereich mit ViewZeroOut() löschen:' | TAB | psMeasureDest ) ;
+ViewZeroOut ( csCubeName, vsViewName ) ;
+LogOutput ( 'DEBUG', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0567 Prolog:' | TAB | 'Cube-Bereich ist gelöscht.');
+
+# View und Subsets löschen, wenn es keine temporären Objekte sind
+# -----------------------------------------------------------------------------
+If ( cnIsTemp = FALSE ) ;
+   If ( ViewExists ( csCubeName, vsViewName ) = 1 ) ;
+      LogOutput ( 'DEBUG', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0573 Prolog:' | TAB | 'View löschen:' | TAB | vsViewName ) ;
+      ViewDestroy ( csCubeName, vsViewName ) ;
+      LogOutput ( 'DEBUG', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0575 Prolog:' | TAB | 'View ist gelöscht.' ) ;
+   EndIf;
+
+   #zugehörige Subsets löschen
+   vsDimName = '}APQ UX ViewSource Measure' ;
+   If ( SubsetExists ( vsDimName, vsSubsetName ) = 1 ) ;
+      SubsetDestroy ( vsDimName, vsSubsetName ) ;
+   EndIf;
+
+EndIf ;
+
+# =====================================================================================
+# Quell-Datenview über temp. View. definieren.
+# =====================================================================================
+# Hinweis: View beinhaltet C-Element in der Jahres-Dimension, um Schlüsselung nicht mehrfach durchlaufen zu müssen
+#          Daher sind in allen übrigen Dimensionen die relevanten N-Elemente einzubinden (!keine C-Elemente)
+
+# Erstellung der (temporären) View für Selektion vorbereiten.
+# -----------------------------------------------------------------------------
+vsViewPrefix = 'V_' | TIMST ( vnTimestampStart, '\Y\m\d\h\i\s' ) | '_' | vsZufallszahl | '_' | psMeasureSrc | '_' ;
+vsViewSuffix = '_Temp' ;
+vsSubsPrefix = 'S_' | TIMST ( vnTimestampStart, '\Y\m\d\h\i\s' ) | '_' | vsZufallszahl | '_' | psMeasureSrc | '_' ;
+vsSubsSuffix = '_Temp' ;
+
+vsViewName = vsViewPrefix | vsProcessName | vsViewSuffix ;
+vsSubsetName = vsSubsPrefix | vsProcessName | vsSubsSuffix ;
+
+
+# (temporäre) View anlegen.
+# -----------------------------------------------------------------------------
+If ( ViewExists ( csCubeName, vsViewName ) = 1 ) ;
+   ViewDestroy ( csCubeName, vsViewName ) ;
+EndIf ;
+ViewCreate ( csCubeName, vsViewName, cnIsTemp ) ;
+
+ViewExtractSkipCalcsSet ( csCubeName, vsViewName, 0 ) ;
+ViewExtractSkipZeroesSet ( csCubeName, vsViewName, 1 ) ;
+ViewSuppressZeroesSet ( csCubeName, vsViewName, 1 ) ;
+
+# Subset erstellen und der View zuordnen.
+# -----------------------------------------------------------------------------
+# Dimension: }APQ UX ViewSource Measure ######################
+vsDimName = '}APQ UX ViewSource Measure' ;
+vsSubsElemName = psMeasureSrc ;
+
+If ( SubsetExists ( vsDimName, vsSubsetName ) = 1 ) ;
+   SubsetDeleteAllElements ( vsDimName, vsSubsetName ) ;
+Else ;
+   SubsetCreate ( vsDimName, vsSubsetName, cnIsTemp ) ;
+EndIf ;
+
+SubsetElementInsert ( vsDimName, vsSubsetName, vsSubsElemName, 1 ) ;
+
+ViewSubsetAssign ( csCubeName, vsViewName, vsDimName, vsSubsetName ) ;
+
+
+# =====================================================================================
+# Datenquelle - View.
+# =====================================================================================
+LogOutput ( 'DEBUG', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0786 Prolog:' | TAB | 'Datenquelle-View festlegen.' ) ;
+DataSourceType = 'View';
+DatasourceNameForServer = csCubeName;
+DatasourceCubeView = vsViewName;
+
+LogOutput ( 'DEBUG', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0791 Prolog:' | TAB | 'Datenquelle-View Ende.' ) ;
+
+LogOutput ( 'DEBUG', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0793 Prolog:' | TAB | 'Ende.' ) ;
+
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+CellPutS(dsValue, csCubeName, dsAPQUXApp, psMeasureDest) ;
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+LogOutput ( 'DEBUG', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0005 Epilog:' | TAB | 'Start.' ) ;
+
+# =====================================================================================
+# Datenquellen-View und Subsets löschen, wenn es keine temporären Objekte sind
+# =====================================================================================
+If ( cnIsTemp = FALSE & vnErrProlog = 0 ) ;
+  If ( ViewExists ( csCubeName, vsViewName ) = 1 ) ;
+     LogOutput ( 'DEBUG', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0012 Epilog:' | TAB | 'Datenquellen-View löschen:' | TAB | vsViewName ) ;
+     ViewDestroy ( csCubeName, vsViewName ) ;
+     LogOutput ( 'DEBUG', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0014 Epilog:' | TAB | 'Datenquellen-View ist gelöscht.' ) ;
+  EndIf;
+
+  vsDimName = '}APQ UX ViewSource Measure' ;
+  If ( SubsetExists ( vsDimName, vsSubsetName ) = 1 ) ;
+     SubsetDestroy ( vsDimName, vsSubsetName ) ;
+  EndIf;
+
+EndIf ;
+
+# =====================================================================================
+# Prozessergebnis in Text-File protokollieren.
+# =====================================================================================
+If ( vnLog >= 2 ) ;
+	
+   # Zusammenfassung in Err-Log-Datei, bei Fehler im TI-Initialisierungsprozess (Prolog) mit kontrollierten Prozessabbruch.
+   If ( vnErrProlog = 1 ) ;
+      LogOutput ( 'DEBUG', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0081 Epilog:' | TAB | 'TI-Abbruch - Fehler im TI-Initialisierungsprozess (Prolog) mit kontrollierten Prozessabbruch.' ) ;
+   EndIf ;  	
+	
+   # Umlenkung der Zusammenfassung in Log-Datei, wenn keine Datensätze zum Import zur Verfügung standen
+   If ( vnRecordCountD = 0 & vnErrProlog = 0 ) ;
+      LogOutput ( 'DEBUG', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0091 Epilog:' | TAB | 'TI-Abbruch - Es wurden keine Import-Datensätze bereitgestellt.' ) ;      
+   EndIf ; 
+   
+   vsStartDateTime = TIMST ( vnTimestampStart, '\Y-\m-\d \h.\i.\s' ) ;
+   vnTimestampEnde = NOW ; 
+   vsEndDateTime = TIMST ( vnTimestampEnde, '\Y-\m-\d \h.\i.\s' ) ;
+	
+EndIf ;
+
+# =====================================================================================
+# Prozessergebnis in tm1server.log protokollieren.
+# =====================================================================================
+If ( vnErrProlog = 0 & vnRecordCountD > 0 ) ;
+   LogOutput ( 'INFO', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0179 Epilog:' | TAB | 'Prozessdauer                                                                 :' | TAB | TIMST ( vnTimestampEnde - vnTimestampStart , '\h:\i:\s' ) ) ;
+   LogOutput ( 'INFO', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0180 Epilog:' | TAB | 'Anzahl gelieferte Datensätze (Anzahl MIFRI-Psotionen)                        :' | TAB | NumberToStringEx ( vnRecordCountD, '#,0', '', '.' ) ) ;
+   LogOutput ( 'INFO', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0181 Epilog:' | TAB | 'Anzahl Datensätze ohne Fehler                                                :' | TAB | NumberToStringEx ( vnLoadCountD, '#,0', '', '.' ) ) ;
+   LogOutput ( 'INFO', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0182 Epilog:' | TAB | 'Anzahl Datensätze mit Fehler                                                 :' | TAB | NumberToStringEx ( vnErrCountD, '#,0', '', '.' ) ) ;
+EndIf ;
+
+LogOutput ( 'INFO', 'ProcessInfo_Beschreibung' | TAB | vsProcessName | TAB | '0227 Epilog:' | TAB | 'Ende.' ) ;
+
+
+#endregion

@@ -1,0 +1,51 @@
+{
+	"@type":"Process",
+	"Name":"_tmp",
+	"Code@Code.link":"_tmp.ti",
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForClient":"Record Rating",
+		"dataSourceNameForServer":"Record Rating",
+		"view":"Default"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"Period",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Chart",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Record",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"V4",
+			"Type":"String",
+			"Position":4,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Value",
+			"Type":"Numeric",
+			"Position":5,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}
