@@ -102,22 +102,59 @@
 		{
 			"Name":"Bowen Hills",
 			"Type":"Numeric"
+		},
+		{
+			"Name":"Australia",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Netherlands",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Amsterdam",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Leidsestraat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kalverstraat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"'s-Gravenhage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Spui",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Lange Poten",
+			"Type":"Numeric"
 		}
 	],
 	"Edges":
 	[
 		{
 			"ParentName":"Total Stores",
+			"ComponentName":"Australia",
+			"Weight":1
+		},
+		{
+			"ParentName":"Australia",
 			"ComponentName":"Sydney",
 			"Weight":1
 		},
 		{
-			"ParentName":"Total Stores",
+			"ParentName":"Australia",
 			"ComponentName":"Melbourne",
 			"Weight":1
 		},
 		{
-			"ParentName":"Total Stores",
+			"ParentName":"Australia",
 			"ComponentName":"Brisbane",
 			"Weight":1
 		},
@@ -224,6 +261,41 @@
 		{
 			"ParentName":"Brisbane",
 			"ComponentName":"Bowen Hills",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Stores",
+			"ComponentName":"Netherlands",
+			"Weight":1
+		},
+		{
+			"ParentName":"Netherlands",
+			"ComponentName":"Amsterdam",
+			"Weight":1
+		},
+		{
+			"ParentName":"Netherlands",
+			"ComponentName":"'s-Gravenhage",
+			"Weight":1
+		},
+		{
+			"ParentName":"Amsterdam",
+			"ComponentName":"Leidsestraat",
+			"Weight":1
+		},
+		{
+			"ParentName":"Amsterdam",
+			"ComponentName":"Kalverstraat",
+			"Weight":1
+		},
+		{
+			"ParentName":"'s-Gravenhage",
+			"ComponentName":"Spui",
+			"Weight":1
+		},
+		{
+			"ParentName":"'s-Gravenhage",
+			"ComponentName":"Lange Poten",
 			"Weight":1
 		}
 	],
